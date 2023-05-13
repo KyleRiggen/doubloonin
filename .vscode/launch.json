@@ -12,7 +12,10 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/app.js",
-            "stopOnEntry": true
+            "stopOnEntry": true,
+            "restart": true,
+            "runtimeExecutable": "nodemon",
+            "console": "integratedTerminal"
         }
     ]
 }

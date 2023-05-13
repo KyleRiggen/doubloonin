@@ -1,43 +1,13 @@
 const http = require('http');
 // import my own files: ('./file') for relative path or ('/file') for an absolute path 
-const fs = require('fs');
 
-const server = http.createServer((req, res) => {
+const routes = require('./routes');
 
-    const url = req.url;
-    const method = req.method;
+// use "routes" for incoming requests
+const server = http.createServer(routes);
 
-    if (url === '/') {
-        res.write('<html>');
-        res.write('<head><title>enter message</title></head>');
-        res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">its a button</button></form></body>');
-        res.write('</html>');
-        return res.end()
-    }
-
-    if (url === '/message' && method === 'POST') {
-        const body = [];
-        req.on('data', (chunk) => {
-            console.log(chunk);
-            body.push(chunk);
-        });
-        return req.on('end', () => {
-            const parsedBody = Buffer.concat(body).toString();
-            const message = parsedBody.split('=')[1];
-            fs.writeFile('message.txt', message, (err) => {
-                res.statusCode = 302;
-                res.setHeader('Location', '/');
-                return res.end();
-            });
-        });
-    }
-
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<html>');
-    res.write('<head><title>my first page</title></head>');
-    res.write('<body><h1>hello node js</h1></body>');
-    res.write('</html>');
-    res.end()
-});
-
+// listening on port 3000
 server.listen(3000);
+
+// https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+// https://nodejs.org/en/docs/guides/debugging-getting-started
