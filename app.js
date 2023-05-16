@@ -1,4 +1,5 @@
 // import my own files: ('./file') for relative path or ('/file') for an absolute path 
+const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -9,6 +10,7 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
