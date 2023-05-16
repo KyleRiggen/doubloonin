@@ -1,17 +1,20 @@
 // import my own files: ('./file') for relative path or ('/file') for an absolute path 
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use((req, res, next) => {
-    console.log('in the middleware');
-    next();
-});
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
 app.use((req, res, next) => {
-    console.log('in 2 the middleware')
-    res.send('<h1>hello from express</h1>');
+    res.status(404).send('<h1>page not found</h1>')
 });
 
 app.listen(3000);
