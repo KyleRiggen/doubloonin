@@ -1,13 +1,20 @@
-const http = require('http');
 // import my own files: ('./file') for relative path or ('/file') for an absolute path 
 
-const routes = require('./routes');
+const express = require('express');
 
-// use "routes" for incoming requests
-const server = http.createServer(routes);
+const app = express();
 
-// listening on port 3000
-server.listen(3000);
+app.use((req, res, next) => {
+    console.log('in the middleware');
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log('in 2 the middleware')
+    res.send('<h1>hello from express</h1>');
+});
+
+app.listen(3000);
 
 // https://code.visualstudio.com/docs/nodejs/nodejs-debugging
 // https://nodejs.org/en/docs/guides/debugging-getting-started
