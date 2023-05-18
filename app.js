@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 import express from 'express';
@@ -18,14 +19,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
+const RIOT_API = process.env.RIOT_API;
 (async () => {
-    const rAPI = new RiotAPI('RGAPI-23004652-3cf8-4bbc-a604-001c24f4a550');
+    const rAPI = new RiotAPI(RIOT_API);
 
-    const summoner = await rAPI.summoner.getBySummonerName({
+    // API functions and parameters: https://github.com/fightmegg/riot-api/blob/master/src/index.ts
+    const summoner = await rAPI.league.getChallengerByQueue({
         region: PlatformId.EUW1,
-        summonerName: "Demos Kratos",
+        queue: "RANKED_SOLO_5x5",
       });
     console.log(summoner);
+    fs.writeFile("json/data.json", JSON.stringify(summoner), (err) => err && console.error(err));
 })()
 
 
