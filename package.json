@@ -9,10 +9,12 @@
   },
   "author": "KyleRiggen",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "nodemon": "^2.0.22"
   },
   "dependencies": {
+    "@fightmegg/riot-api": "^0.0.13",
     "body-parser": "^1.20.2",
     "express": "^4.18.2"
   }
