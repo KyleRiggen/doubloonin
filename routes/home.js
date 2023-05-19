@@ -10,16 +10,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 homeRouter.get('/', (req, res, next) => {
-    // const matches = adminData.matches;
     res.render('home', {
         mtchs: matches,
         pageTitle: 'Home',
-        path: '/',
-        hasMatches: matches.length > 0,
-        activeHome: true,
-        matchCSS: true
+        path: '/'
     });
-    console.log(matches)
 });
 
 export { homeRouter };
