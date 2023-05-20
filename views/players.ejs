@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('includes/nav.ejs') %>
+
+    <main>
+        <% if (playersView.length > 0) { %>
+            <% for (let player of playersView) { %>
+                <h3><%= player.name %></h3>
+                <h6><%= player.points %></h6>
+            <% } %>
+        <% } else { %>
+            <h1>no products found. matches array not greater than 0</h1>
+        <% } %>
+    </main>
+    <%- include('includes/end.ejs') %>

@@ -1,20 +1,12 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 import express from 'express';
 
-import { adminRouter, matches } from "./admin.js";
+import { getMatches } from '../controllers/matches.js';
+import { getPlayers } from '../controllers/players.js';
 
 const homeRouter = express.Router();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-homeRouter.get('/', (req, res, next) => {
-    res.render('home', {
-        mtchs: matches,
-        pageTitle: 'Home',
-        path: '/'
-    });
-});
+homeRouter.get('/', getMatches);
+
+homeRouter.get('/players', getPlayers);
 
 export { homeRouter };
