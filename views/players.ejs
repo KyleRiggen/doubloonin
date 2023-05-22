@@ -6,10 +6,11 @@
 
     <main>
         <% if (playersView.length > 0) { %>
+            <ul>
             <% for (let player of playersView) { %>
-                <h3><%= player.name %></h3>
-                <h6><%= player.points %></h6>
+                <li><%= player.region %> <%= player.points %> <%= player.name %></li>
             <% } %>
+            </ul>
         <% } else { %>
             <h1>no products found. matches array not greater than 0</h1>
         <% } %>
