@@ -1,7 +1,7 @@
 import Match from "../models/match.js";
 
 const getAddMatch = (req, res, next) => {
-    res.render('add-match', {
+    res.render('admin/add-match', {
         pageTitle: 'Add Match',
         path: '/admin/add-match'
     });
@@ -15,7 +15,7 @@ const postAddMatch = (req, res, next) => {
 
 const getMatches = (req, res, next) => {
     Match.fetchAll((matches) => {
-        res.render('home', {
+        res.render('home/home', {
             mtchs: matches,
             pageTitle: 'Home',
             path: '/'
