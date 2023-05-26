@@ -2,6 +2,7 @@ import { RiotAPI, RiotAPITypes, PlatformId } from '@fightmegg/riot-api'
 
 async function playerAPI(cb) {
     let players = [];
+    const region = "EUW1"
     const rAPI = new RiotAPI(process.env.RIOT_API);
 
     // https://github.com/fightmegg/riot-api/blob/master/src/index.ts
@@ -15,7 +16,7 @@ async function playerAPI(cb) {
         players.push({
             "name": player.summonerName,
             "points": player.leaguePoints,
-            "region": "EU"
+            "region": region
         });
     }
 

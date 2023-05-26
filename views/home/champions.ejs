@@ -1,0 +1,16 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+
+    <main>
+        <% if (champs.length > 0) { %>
+            <% for (let champ of champs) { %>
+                <h3><%= champ.name %></h3>
+            <% } %>
+        <% } else { %>
+            <h1>no champions found. champions file not greater than 0</h1>
+        <% } %>
+    </main>
+    <%- include('../includes/end.ejs') %>

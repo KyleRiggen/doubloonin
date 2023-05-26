@@ -12,6 +12,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 import { adminRouter } from "./routes/admin.js";
+import { champRouter } from "./routes/champ.js";
 import { homeRouter } from "./routes/home.js";
 import { get404 } from './controllers/error.js';
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRouter);
+app.use(champRouter);
 app.use(homeRouter);
 
 app.use(get404);
