@@ -16,8 +16,10 @@ const getChampsFromFile = cb => {
 }
 
 export default class Champion {
-    constructor(n) {
+    constructor(n, p, pic) {
         this.name = n;
+        this.points = p;
+        this.picture = pic;
     }
 
     save() {
