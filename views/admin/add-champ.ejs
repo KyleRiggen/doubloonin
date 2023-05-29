@@ -1,24 +1,18 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
-    </head>
+</head>
 
-    <body>
-        <%- include('../includes/nav.ejs') %>
-            <main>
-                <form class="product-form" action="/admin/add-champion" method="POST">
-                    <div class="form-control">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name">
-                    </div>
-                    <div class="form-control">
-                        <label for="points">Points</label>
-                        <input type="text" name="points" id="points">
-                    </div>
-                    <div class="form-control"></div>
-                        <label for="imageUrl">Image URL</label>
-                        <input type="text" name="imageUrl" id="imageUrl">
-                    </div>
-                    <button type="submit">Add Champion</button>
-                </form>
-            </main>
-        <%- include('../includes/end.ejs') %>
+<body>
+    <%- include('../includes/nav.ejs') %>
+
+    <main>
+        <form class="product-form" action="/admin/add-champion" method="POST">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+
+            <button type="submit">Add Champion</button>
+        </form>
+    </main>
+    <%- include('../includes/end.ejs') %>
