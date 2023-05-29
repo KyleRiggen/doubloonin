@@ -8,7 +8,7 @@ const getAddChamp = (req, res, next) => {
 };
 
 const postAddChamp = (req, res, next) => {
-    const champ = new Champion(req.body.name);
+    const champ = new Champion(req.body.name, req.body.points, req.body.imageUrl);
     champ.save();
     res.redirect('/champions');
 };

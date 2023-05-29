@@ -13,4 +13,6 @@ adminRouter.get('/add-champion', getAddChamp);
 
 adminRouter.post('/add-champion', postAddChamp);
 
+// adminRouter.get('/add-players', getAddPlayers);
+
 export { adminRouter };

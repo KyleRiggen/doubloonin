@@ -7,7 +7,8 @@
     <main>
         <% if (champs.length > 0) { %>
             <% for (let champ of champs) { %>
-                <h3><%= champ.name %></h3>
+                <p><%= champ.points %> | <%= champ.name %></p>
+                <p>image url: <%= champ.picture %></p>
             <% } %>
         <% } else { %>
             <h1>no champions found. champions file not greater than 0</h1>
